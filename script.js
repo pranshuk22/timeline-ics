@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadGoogleDoc() {
-    fetch("http://127.0.0.1:5000/get-doc")  // Replace with your actual API URL
+    fetch("https://timeline-ics.onrender.com/")  // Replace with your actual API URL
         .then(response => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
