@@ -2,9 +2,11 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
+import google.auth
+
 
 # Google API Credentials
-SERVICE_ACCOUNT_FILE = "ics-timeline-49d912f940bb.json"  # Path to your JSON key file
+SERVICE_ACCOUNT_FILE = "ics-timeline-5e53629e60b1.json"  # Path to your JSON key file
 
 # Google Doc ID
 DOCUMENT_ID = "1t8Kwum1qJLqZLu-fG2tiE7cszsKg44c2LEHjWL9AXYQ"
@@ -14,9 +16,12 @@ CORS(app)
 
 SCOPES = ['https://www.googleapis.com/auth/documents.readonly']
 
+
 credentials = service_account.Credentials.from_service_account_file(
     SERVICE_ACCOUNT_FILE, scopes=SCOPES
 )
+
+#
 
 def get_google_doc_html():
     service = build('docs', 'v1', credentials=credentials)
